@@ -1,0 +1,3 @@
+# Fictional checkout acceptance
+
+Initial project has payments disabled. A selected local scenario creates one owned pending order and mounts a mock Element. Test no browser success grant, missing/invalid signature, wrong owner/customer/session, mismatched amount/currency/environment, unpaid completion, a matching paid event, exact duplicate and changed-body replay. Inject transaction failure to prove no processed marker without grant, then retry once. A handcrafted HMAC or volatile map is explicitly a local contract mock, not Stripe SDK or Neon transaction proof. Real Elements rendering/3DS, SDK signatures, asynchronous billing and provider delivery remain NOT_RUN until observed.

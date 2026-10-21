@@ -1,0 +1,9 @@
+{
+  "name": "dlag-advanced-app-builder",
+  "version": "0.6.1-local.1",
+  "description": "Advanced App Builder: SvelteKit, Neon, WorkOS, Doppler and Vercel; separate Payload CMS ownership, R2 and transactional Resend. Optional Stripe custom checkout is disabled by default.",
+  "author": {
+    "name": "Develop Like a Girl"
+  },
+  "license": "AGPL-3.0-or-later"
+}

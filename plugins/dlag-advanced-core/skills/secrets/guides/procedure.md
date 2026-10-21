@@ -1,0 +1,12 @@
+# Secrets Management procedure
+
+1. Inventory names and consumers, never values: DATABASE_URL, WorkOS API/client/cookie configuration, R2 endpoint/access keys/bucket, RESEND_API_KEY and approved sender, Payload secret, and optional Stripe variables. Public origins or client IDs are not permission to expose every variable. PUBLIC_ prefixes are an explicit browser publication decision; credentials never use them.
+2. Doppler is the configuration source. Record separate development, preview and production configs and the exact Vercel project/environment each sync targets. Payload may be a separate Vercel application and gets only the secrets it uses. App runtime DB credentials and migration credentials differ. Keep customer app, CMS and provider environments matched.
+3. Author placeholders and a name-only configuration map. Never request, print, store or scan secret values in project docs, shell history, logs, commits or reports. Local Doppler injection and Vercel sync are operator/provider actions requiring the task's authorization; this Playbook does not create tokens, integrations or settings. Do not check in an exported .env file.
+4. In server-only SvelteKit modules use the private environment API supported by the installed SvelteKit major. The example targets SvelteKit 2's $env/dynamic/private; for another installed major confirm its current equivalent. Validate once before that service is used and fail with variable names only. Do not import a secrets module through shared index files into Svelte components or universal loads.
+5. A successful sync is not proof the running deployment has new values. Record sync mapping and the deployment needed to consume it. Existing secret rotation must identify dependent clients and roll-forward/rollback before any provider write. Changing a Doppler value or integration can affect deployments, so do not use it as a harmless local check.
+6. Save the worksheet and report present/missing by name, never content. Use dlag-advanced-core:vercel-platform for deployment boundaries and dlag-advanced-core:ready-check for honest readiness. Missing credentials leave live checks pending; do not invent values or replace the selected provider.
+
+The [example](../examples/recipe.ts) is an integration recipe, not an installed or compiled SDK guarantee. Save the [worksheet](../templates/worksheet.md) and consult [official sources](../references/official-sources.md) for the installed versions.
+
+Continue with [map environments and rotate credentials](environment-map.md) for the worked implementation.

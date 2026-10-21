@@ -1,0 +1,27 @@
+{
+  "name": "dlag-advanced",
+  "owner": {
+    "name": "Develop Like a Girl"
+  },
+  "metadata": {
+    "description": "Advanced Core, Website Builder and App Builder local candidates. Install Core explicitly before either builder.",
+    "version": "0.6.1-local.1"
+  },
+  "plugins": [
+    {
+      "name": "dlag-advanced-core",
+      "source": "./plugins/dlag-advanced-core",
+      "description": "Advanced Core platform and design: SvelteKit, Neon, WorkOS, Doppler and Vercel; separate Payload CMS ownership, R2 and transactional Resend."
+    },
+    {
+      "name": "dlag-advanced-website-builder",
+      "source": "./plugins/dlag-advanced-website-builder",
+      "description": "Advanced Website Builder: SvelteKit, Neon, WorkOS, Doppler and Vercel; separate Payload CMS ownership, R2 and transactional Resend."
+    },
+    {
+      "name": "dlag-advanced-app-builder",
+      "source": "./plugins/dlag-advanced-app-builder",
+      "description": "Advanced App Builder: SvelteKit, Neon, WorkOS, Doppler and Vercel; separate Payload CMS ownership, R2 and transactional Resend. Optional Stripe custom checkout is disabled by default."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# App Builder procedure
+
+1. Read existing Project Notebook, packages and accepted decisions. Use dlag-advanced-core:project-planning to save the linked first-slice brief. Start with one usable record journey, not a full generated product.
+2. Route auth to dlag-advanced-core:identity and database boundaries to dlag-advanced-core:data-foundation. WorkOS verifies the actor; Neon/Drizzle queries explicitly enforce actor/organization permissions before reads/counts/updates. Neon does not automatically acquire Supabase-style RLS from this kit. A tenant ID supplied by a form, path or cookie is not proof of membership.
+3. Build the SvelteKit shell, server load and named form actions through dlag-advanced-core:svelte-foundation and dlag-advanced-core:implementation-foundation. Use dlag-advanced-core:design-foundation and dlag-advanced-core:ui-primitives for the surface. Keep privileged clients in server modules, actor facts in request locals, and private SSR responses uncached.
+4. Use dlag-advanced-app-builder:app-data-ui for tables, dlag-advanced-app-builder:app-onboarding after the first real action, dlag-advanced-app-builder:app-search for requested lexical search and dlag-advanced-app-builder:app-integrations only when a provider is requested. No action can inherit authorization solely from a parent layout or hidden button.
+5. Use dlag-advanced-core:r2-storage for private uploads/downloads and dlag-advanced-core:resend-transactional for requested event mail. Save the main mutation and durable notification intent together when required; a send failure cannot replay the main mutation. No newsletters or unselected queue service.
+6. The custom backend is SvelteKit functions on Vercel through dlag-advanced-core:vercel-platform. Doppler supplies approved server secrets through dlag-advanced-core:secrets. Payload owns CMS operations and its separate editor login when Website Builder is selected; never use Payload editor accounts as app WorkOS sessions.
+7. Payments are optional and default off. Use dlag-advanced-app-builder:stripe-payments when requested and available, following Advanced custom Stripe Elements. The browser return page grants no entitlement. Missing optional dependencies block that feature only.
+8. Read edits back; exercise affected sign-out/owner/other-user/form/search/file/duplicate/keyboard paths through dlag-advanced-core:browser-checks. Record exact compile/browser/mock/provider limits in the linked report. Finish with dlag-advanced-core:ready-check. No mock result is live WorkOS/Neon/R2/Resend/Stripe proof.
+
+Read the [recipe](../examples/first-slice.md) and fill the [record](../templates/app-brief.md) for the requested scope.
+
+Use [the connected record journey](record-journey.md) for the file map, scoped query layer, named actions and Svelte 5 forms. It names its application prerequisites explicitly.

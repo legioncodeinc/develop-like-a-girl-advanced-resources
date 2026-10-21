@@ -1,0 +1,19 @@
+/* Illustrative palette. Adopt the project's approved values, then measure contrast. */
+@import "tailwindcss";
+:root {
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --primary: #1e40af;
+  --primary-foreground: #ffffff;
+  --focus: #1d4ed8;
+}
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+}
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

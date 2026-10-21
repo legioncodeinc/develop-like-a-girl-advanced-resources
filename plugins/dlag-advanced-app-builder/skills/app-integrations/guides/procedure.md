@@ -1,0 +1,13 @@
+# Application Integrations procedure
+
+1. Save the linked integration contract before implementation: requested provider, current official API version, ownership/scopes, objects, sync direction, payload allowlist, conflict and disconnect policy. No CRM, automation service or queue is selected implicitly.
+2. Use dlag-advanced-core:identity for actor/delegated authority, dlag-advanced-core:secrets for Doppler-managed server secrets, and dlag-advanced-core:implementation-foundation for HTTP/input boundaries. Keep adapters in src/lib/server and request handlers in SvelteKit +server.ts/functions on Vercel. No independent Next.js application backend or new Supabase/Workers backend.
+3. Build URLs from a fixed HTTPS provider origin and fixed allowlisted routes. Reject user-supplied origins/ports, redirects and arbitrary callback URLs. Bound timeout, request bytes, response bytes and JSON schema. Tokens must remain server-only, tenant-bound and redacted from errors/logs.
+4. Retry only documented transient errors with capped attempts/backoff and Retry-After. Writes require supported idempotency bound to actor, operation and stable payload digest. Lost response after a commit means uncertain outcome: reconcile or use provider idempotency before replay. A fresh random key on each retry defeats deduplication.
+5. Inbound webhooks read bounded raw bytes, verify the official provider signature/timestamp before parsing, validate event schema and map external IDs to the correct app owner. Record event ID plus raw payload digest under a unique constraint. Durable claiming and state mutation share one database transaction; reject the same ID with changed content. Acknowledgment follows durable acceptance. Background promises after response are not a durable queue.
+6. Preserve opt-outs and revocation across conflicts. Revoke access on disconnect and prevent later retries from re-enabling it. Use dlag-advanced-core:data-foundation for transaction/tenant contracts and dlag-advanced-core:vercel-platform for bounded function execution.
+7. Start with a fake adapter and exercise invalid signature/stale timestamp/wrong owner/duplicate/changed payload/rate limit/timeout/lost response/disconnect. Use the linked failure matrix. No live credentials, provider sends or production readiness from mocks. Finish with dlag-advanced-core:ready-check.
+
+Read the [recipe](../examples/failure-matrix.md) and fill the [record](../templates/integration-contract.md) for the requested scope.
+
+Use [the adapter contract and transaction recipe](../references/adapter-contract.md) for concrete module ownership, verified event shape, atomic deduplication, outgoing intent recovery and response semantics.
