@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Advanced Core, Website Builder and App Builder local candidates. Install Core explicitly before either builder.",
-    "version": "0.6.1-local.1"
+    "version": "0.6.2-local.1"
   },
   "plugins": [
     {

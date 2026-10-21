@@ -1,0 +1,15 @@
+# Data access, query types, and schema changes
+
+Use the existing Neon/Drizzle schema as the type source. Derive selected and inserted rows with the installed table’s $inferSelect/$inferInsert (or matching InferSelectModel/InferInsertModel). Model updates as the intentionally editable subset, never every row field. A projected public DTO remains distinct from a complete row and needs explicit runtime field selection. Payload-generated content types belong to the separate CMS schema.
+
+Typed selections must match fields, joins, aliases, cardinality and nullability. Use the actual Drizzle version’s query API and schema exports; avoid copying Supabase Database table types or another ORM’s callbacks. A successful type check does not establish that a query is tenant-scoped or that the database has the expected migration state.
+
+Values belong in the client's parameter/filter API or a database function with typed parameters. Dynamic identifiers require an application allowlist; escaping arbitrary identifiers is not authorization. Literal SQL string escaping from a backend with no parameter support must not replace Postgres parameter binding. For pattern matching, decide whether user `%` and `_` characters are wildcards or literal text and encode that contract explicitly. Quote-escape tests do not prove tenant isolation. WorkOS membership does not configure database isolation. Scope every application query by the verified tenant/owner; if the project also uses PostgreSQL RLS, review that independent policy explicitly.
+
+Batch related reads through one bounded query where possible. Empty input returns empty output without a query. Deduplicate bounded IDs, limit output, and report truncation. Independent heterogeneous reads can use bounded concurrency; unbounded Promise.all over user input is not a bound. Query count and returned shape deserve tests in addition to snapshots of rendered markup.
+
+Database schema lives in reviewed migrations owned by the database process. Request handlers do not lazily ALTER tables or heal missing columns. Preserve the schema-diff discipline as a review: inspect current definition, intended change, dependent generated types, backfill, default/nullability, policies, indexes, and rollback/roll-forward plan. A default for an existing column is a data decision, not universally safe. Additive, backfill, and constraint phases may be necessary. Re-verify an already-applied state before treating a race as success.
+
+A missing relation or column is an operational/schema failure unless the product contract defines a safe empty state. Do not convert a permissions error or missing migration into 'no results'. Compare fixtures to generated schema and regenerate types after an authorized migration. No migration apply, remote introspection, or credential use is authorized by this guide.
+
+Source: [Drizzle type inference](https://orm.drizzle.team/docs/goodies#type-api). Generated shape and query compilation do not prove tenant isolation, authorization, or live migration state.

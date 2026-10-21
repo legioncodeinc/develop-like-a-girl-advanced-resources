@@ -1,6 +1,6 @@
 {
   "name": "dlag-advanced-core",
-  "version": "0.6.1-local.1",
+  "version": "0.6.2-local.1",
   "description": "Advanced Core platform and design: SvelteKit, Neon, WorkOS, Doppler and Vercel; separate Payload CMS ownership, R2 and transactional Resend.",
   "author": {
     "name": "Develop Like a Girl"

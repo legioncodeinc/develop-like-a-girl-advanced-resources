@@ -1,7 +1,7 @@
 # Dependency Review
 
-Start with [the Playbook](SKILL.md), its [procedure](guides/procedure.md), and [result template](templates/result.md).
+Read [the Playbook](SKILL.md) for the task map and [ownership rules](playbook.md) for the review boundary. The nine guides contain the complete methods; examples and templates are local teaching and proposal resources.
 
-## Scope
+Advanced uses Svelte 5/SvelteKit on Vercel, Neon PostgreSQL with Drizzle, WorkOS customer identity, Doppler secrets, R2 through the S3 API and transactional Resend. Payload 3 runs separately on Next.js with its built-in editor auth. Stripe is optional custom checkout. No newsletter or background-job provider is selected. Inspect actual manifests; examples do not choose dependencies.
 
-Supported adaptation scope: Offline inventory and review of supplied dependency and advisory evidence. Current vulnerability status is unknown without applicable dated advisories. The package presence and structural checks do not establish model behavior or application readiness.
+Use [tool evidence](references/tool-evidence.md) for the limits of scanner, update-service and signature claims. No scan, install, upgrade, provider change, action workflow or publication has been performed by reading this pack. Historical exercises are represented by [unrun qualification worksheets](templates/example-qualification.md), with independent review still required for a real candidate.

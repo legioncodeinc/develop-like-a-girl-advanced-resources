@@ -1,0 +1,15 @@
+# Modules, compiler, and layout
+
+Separate browser components, SvelteKit server modules, domain functions, data adapters, and Node-only build tooling. A browser component may import a pure DTO parser; it must not import a module that creates a privileged client or reads a server secret. File naming alone is not proof of a boundary. Inspect transitive imports and the actual bundler output.
+
+For Vite-bundled application code, bundler module resolution models the bundler's package exports and relative import behavior. A relative TypeScript import need not acquire a `.js` suffix just to resemble a Node library. For a directly executed Node ESM helper, resolve according to the actual Node loader and emitted filename; ordinary relative ESM imports require their real extension. Do not apply either rule to every package in a workspace. CommonJS interop in an existing dependency is different from introducing `require` into an ESM-only module.
+
+Keep strict checking. `unknown` is the right starting point for outside data. Fix nullability, wrong imports, and type-only imports rather than changing strictness or adding an assertion to silence the compiler. `import type` and `export type` make type dependencies explicit under verbatim module syntax. Isolated compilation settings must agree with the tool that transforms each file. Type stripping or a successful Vite transform does not replace a type checker.
+
+Treat generated SvelteKit route declarations as generated output. Change the owning route/config source, regenerate through the existing approved toolchain and run the project’s Svelte/type check. Do not hand-edit generated types to disguise incompatible APIs. Preserve the framework-generated configuration and aliases. This toolkit’s route illustration uses the existing SvelteKit 2 layout; a newer major has different generated paths and requires its own migration.
+
+Keep browser, application-server, CMS-host and build-tool compiler contexts distinct. SvelteKit 2 projects normally extend their generated .svelte-kit/tsconfig.json; preserve generated include paths and project settings. A browser compiler fragment cannot replace the framework configuration. Node support in a local build does not prove that an explicitly selected Edge runtime accepts that module. Payload’s React/Next.js host keeps its own JSX and server/client configuration.
+
+Review output paths, aliases, casing, module exports, target/lib settings and declarations against the actual delivery target. A compiler target names syntax emission; it does not install runtime APIs. Keep source maps private or intentionally published according to the release policy. Type-only checks, transforms, bundling and runtime smoke tests establish different facts.
+
+Sources: [TypeScript resolution](https://www.typescriptlang.org/tsconfig/moduleResolution.html), [SvelteKit types](https://svelte.dev/docs/kit/types), [server-only modules](https://svelte.dev/docs/kit/server-only-modules). Match the installed major; current docs also describe SvelteKit 3.

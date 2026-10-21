@@ -1,16 +1,3 @@
-# Dependency review
+# Dependency Review result
 
-Candidate and manifest/lockfile identity:
-Package manager and runtime declarations:
-Inventory coverage and missing installed-state evidence:
-Current vulnerability status: UNKNOWN / MATCHES SUPPLIED DATED ADVISORY EVIDENCE
-
-| Package | Direct/transitive path | Requested/resolved version | Runtime/dev role | Source/integrity/script evidence | Concern |
-| --- | --- | --- | --- | --- | --- |
-
-| Supplied advisory and date | Exact identity/version match | Exposure evidence | Mitigation proposal | Remaining proof |
-| --- | --- | --- | --- | --- |
-
-Proposed bounded changes, not performed:
-Required validation and rollback:
-Risk exceptions actually approved, if any:
+Use the full [triage report](dependency-triage-report.md) for findings. For a short explanation include actual sources, declaration/resolution distinction, one graph edge, bounded analogy, unknown runtime/security facts and pending teach-back. For release/upgrade work use the specific [release](release-artifact-evidence.md) or [upgrade](major-upgrade-evidence.md) worksheet. State proposed versus performed actions and actual tools/evidence. No empty worksheet is a passing check.

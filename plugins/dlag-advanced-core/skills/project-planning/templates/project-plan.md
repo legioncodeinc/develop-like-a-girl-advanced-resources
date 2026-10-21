@@ -2,7 +2,7 @@
 
 Status: Draft | Revision/date: [actual or unknown]
 Acceptance owner and evidence: [pending or actual supplied decision]
-Edition: [Starter or Advanced]
+Edition: Advanced
 
 ## Goal and evidence
 

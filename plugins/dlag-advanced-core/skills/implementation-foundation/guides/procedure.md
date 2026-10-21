@@ -13,3 +13,7 @@ The [example](../examples/recipe.ts) is an integration recipe, not an installed 
 ## Worked guidance
 
 - [Bounded requests and response contracts](../guides/request-and-response.md)
+
+## Full implementation reference
+
+Use the [complete reading map](../README.md) for the reused TypeScript, HTTP and project-command methods, templates, worked examples and optional inert helpers. The existing Advanced request and provider boundaries remain authoritative.

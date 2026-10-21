@@ -2,7 +2,7 @@
 
 Preserve the existing project's conventions. The Build Studio name Project Notebook does not rename library/ or authorize a documentation migration.
 
-For a project already using Library Schema v2, propose these locations:
+For a project already using Project Notebook Schema v2, propose these locations:
 
 | Draft | Proposed destination |
 | --- | --- |

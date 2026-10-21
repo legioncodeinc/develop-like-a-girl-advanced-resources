@@ -3,7 +3,7 @@
 Status: Draft. No application setup performed. Documentation writes, if requested, are listed separately.
 
 Project/root: [supplied path or missing]
-Edition: [Starter or Advanced, with source]
+Edition: [Advanced, with source]
 Owner goal: [one useful outcome]
 Existing project or proposed disposable project: [which]
 

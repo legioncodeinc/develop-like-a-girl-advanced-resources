@@ -9,3 +9,17 @@
 7. For a website task, check that the separate `dlag-advanced-website-builder` plugin is installed. Load `dlag-advanced-website-builder:website-builder` through Skill or give `/dlag-advanced-website-builder:build-website` as the handoff. If unavailable, report the missing plugin and stop that dependent work. Never resolve a sibling cache path or count Website Builder as a Core component. Return the result, actual methods and tools used, evidence paths, unperformed actions and the smallest next authorized action. For an app task, check the separate `dlag-advanced-app-builder` plugin and invoke `dlag-advanced-app-builder:app-builder` through Skill or hand off `/dlag-advanced-app-builder:build-app`. App search and integrations use that plugin's namespaced commands. Core includes `implementation-foundation`; optional Stripe custom checkout belongs to App Builder. Stop dependent work when a required Playbook is unavailable. Marketing and optional Business Tools remain unavailable. Payload, WorkOS, Neon, Doppler and Vercel belong to this Advanced stack; Supabase and Cloudflare Workers application hosting belong to Starter.
 
 Use [the result template](../templates/result.md) and [edition boundaries](../../../references/edition-boundaries.md).
+
+## Supporting routing procedure
+
+# Build Lead procedure
+
+Read [scope and actual tools](scope-and-tools.md) for the complete coordination method. Select the current owner's route through [the routing references](../references/routing-index.md), then apply only the necessary [recurring sequence](recurring-sequences.md).
+
+Use [the dispatch brief](../templates/dispatch-brief.md) for an authorized capable caller or actual registered worker, and [the result template](../templates/result.md) for actual output, evidence and gaps. A handoff does not prove execution. Missing tools or a missing separate builder plugin block only their dependent work.
+
+## Separate builder handoffs
+
+For website work, first confirm that the separate `dlag-advanced-website-builder` plugin is installed and its Core prerequisite is available. Load `dlag-advanced-website-builder:website-builder` through Skill, or give the capable caller `/dlag-advanced-website-builder:build-website` as the handoff. For app work, confirm the separate `dlag-advanced-app-builder` plugin and load `dlag-advanced-app-builder:app-builder`, or hand off `/dlag-advanced-app-builder:build-app`.
+
+Check actual registered names and tool availability before either route. A named command is a handoff, not proof of dispatch or implementation. Never resolve a sibling cache path to bypass a missing plugin. Build Lead retains Read, Grep, Glob and Skill only; deployment, provider changes, installation and release still require their own authorization and capable caller. Marketing and Business Tools remain unavailable.
