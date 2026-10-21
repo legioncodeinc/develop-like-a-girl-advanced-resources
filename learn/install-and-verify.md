@@ -7,78 +7,113 @@
 
 # Install and verify your kit
 
-By the end, Core and your selected builder will be available in a Claude Code session opened in your own project folder.
+Install through the Claude desktop interface below, or use the [terminal route](#install-from-a-terminal). Then open your own project in Claude Code and check that your kit commands are available.
 
-## Before you begin
+## Install in Claude desktop
 
-Use the [official Claude Code setup guide](https://code.claude.com/docs/en/setup) if you have not installed and signed into Claude Code. Have Git available for the GitHub marketplace. You can check both from your terminal:
+Install and sign in to the [Claude desktop app](https://code.claude.com/docs/en/desktop-quickstart). You do not need a separate CLI installation for this route. The screenshots use **Customize**, which adds plugins to your Claude account. Use the same Claude account when opening Code. See Anthropic's [account plugin and sync instructions](https://support.claude.com/en/articles/13837440-use-plugins-in-claude) for account and organization requirements.
+
+The screenshots show the Starter marketplace. For Advanced, enter the **Advanced repository below** and select the `dlag-advanced-` plugins. The navigation is the same; the images are left unchanged.
+
+**Private repository:** Your GitHub account must have access to Advanced. If Claude asks you to connect GitHub, use the account with access. If the repository does not appear, confirm access before retrying. Advanced does not require Starter.
+
+### 1. Open Customize
+
+In Claude desktop, select **Customize** in the left sidebar.
+
+![Open Customize in the Claude desktop sidebar](../assets/screenshots/desktop/01-open-customize.jpeg)
+
+### 2. Open Plugins and add a marketplace
+
+Select the **Plugins** tab. Open **+ Add** at the upper right, then choose **Add marketplace**.
+
+![Select Plugins, then Add and Add marketplace](../assets/screenshots/desktop/02-add-marketplace.jpeg)
+
+### 3. Choose Add from a repository
+
+Select **Add from a repository** in the dialog.
+
+![Choose Add from a repository](../assets/screenshots/desktop/03-add-from-repository.jpeg)
+
+### 4. Select this kit's repository
+
+Paste this GitHub repository name into the repository field, then select the matching result:
+
+```text
+legioncodeinc/develop-like-a-girl-advanced-resources
+```
+
+The image below shows the Starter search. Use `develop-like-a-girl-advanced-resources` for this kit.
+
+![Starter example: find and select the repository](../assets/screenshots/desktop/04-select-repository.jpeg)
+
+### 5. Sync the marketplace
+
+Confirm the selected repository, review the notice, and select **Sync**. This makes the marketplace's plugins available to add.
+
+![Starter example: sync the selected marketplace](../assets/screenshots/desktop/05-sync-marketplace.jpeg)
+
+### 6. Add Core, then your builder
+
+Add **Dlag advanced core** first. Then add **Dlag advanced website builder**, **Dlag advanced app builder**, or both. Display capitalization may vary; the exact plugin IDs are listed below.
+
+| Plugin | Exact ID | Use it for |
+| --- | --- | --- |
+| Core | `dlag-advanced-core` | Shared planning, design, implementation foundations, and reviews. |
+| Website Builder | `dlag-advanced-website-builder` | Public pages, content, and inquiry forms. |
+| App Builder | `dlag-advanced-app-builder` | Signed-in workflows, data screens, search, and integrations. |
+
+![Starter example: Add buttons for Core, App Builder, and Website Builder](../assets/screenshots/desktop/06-add-plugins.jpeg)
+
+The screenshot shows the plugins available with **Add** buttons. Select Add for each plugin you want, and confirm it appears under **Yours**. Syncing the marketplace alone does not add all three plugins.
+
+## Open your project and verify
+
+Open the **Code** view in Claude desktop, choose a **Local** environment, and select **your own project folder**. Start a new session signed into the same Claude account. In the prompt box, type `/` and look for this kit's commands. For example:
+
+```text
+/dlag-advanced-core:get-started Inspect this folder and propose a first task.
+Keep the proposal in chat.
+```
+
+A useful response describes the folder and recommends a next task. This command prepares a setup proposal; application implementation follows separately. The kit commands go in the Code prompt box. Commands beginning with `claude plugin` belong in a terminal.
+
+Account-installed plugins sync into supported Claude Code versions. If a command is missing, check **Customize → Plugins → Yours**, confirm the same account, and start a fresh Code session. Organization policy or disabled sync can affect availability. See the [official sync guidance](https://support.claude.com/en/articles/13837440-use-plugins-in-claude) and [desktop command guidance](https://code.claude.com/docs/en/desktop#use-skills).
+
+You do not need to clone this marketplace or work inside its `plugins/` directory. Your app or website belongs in its own folder.
+
+## Install from a terminal
+
+Use this alternative if you prefer the CLI. You do not need to repeat it after a successful desktop account installation and command check.
+
+Have Claude Code CLI and Git available. Follow the [CLI setup guide](https://code.claude.com/docs/en/setup) if needed, then check:
 
 ```bash
 claude --version
 git --version
 ```
 
-Both should print a version. If either command is missing, complete that tool's setup before continuing. The examples below use the terminal installation route. Claude Code also has a plugin panel; its current options are documented in [Install and manage plugins](https://code.claude.com/docs/en/discover-plugins).
-
-**Access:** This marketplace is private. Your GitHub account must have access, and Git on this machine must be authenticated for that account. Advanced is self-contained and does not require Starter.
-
-## 1. Add the marketplace and install Core
-
-Run in your terminal:
+Add the marketplace and install Core:
 
 ```bash
 claude plugin marketplace add https://github.com/legioncodeinc/develop-like-a-girl-advanced-resources.git
 claude plugin install dlag-advanced-core@dlag-advanced
 ```
 
-Adding a marketplace makes its plugins discoverable. Installing Core loads the shared foundation. The default user installation makes it available to you across projects; use the plugin panel if you need a different installation scope.
-
-## 2. Install your builder
-
-For public pages, service websites, content, or inquiry forms:
+Install the builder you need, or both:
 
 ```bash
 claude plugin install dlag-advanced-website-builder@dlag-advanced
-```
-
-For signed-in workflows, data screens, onboarding, search, or integrations:
-
-```bash
 claude plugin install dlag-advanced-app-builder@dlag-advanced
 ```
 
-You can install both. Keep Core installed and enabled alongside either builder.
+For this private repository, Git must already be authenticated with an account that has access. These commands install at user scope by default. Local desktop Code sessions on the same computer share those settings. CLI installations remain local to the machine; they do not add plugins to your Claude account. [Installation scopes and account sync](https://code.claude.com/docs/en/discover-plugins).
 
-## 3. Open your own project
-
-Open a terminal in the folder containing your project. For a new project, create and open an empty folder using your usual file manager. Then launch:
-
-```bash
-claude
-```
-
-You do not need to clone this marketplace to use it. Avoid building inside its `plugins/` directory. This repository distributes the kit; your project has its own files.
-
-## 4. Confirm availability
-
-Inside Claude Code, enter:
-
-```text
-/plugin
-```
-
-Confirm `dlag-advanced-core` and your chosen builder appear as installed and enabled. Then send:
-
-```text
-/dlag-advanced-core:get-started Inspect this folder and propose a first task. Keep the
-proposal in chat.
-```
-
-A useful result describes the current folder and recommends a next task. It is a setup proposal, not a newly built app. If the command is unavailable, start a fresh session in the project folder and check the plugin panel again. Keep the full `dlag-advanced-core:` prefix.
+Open a terminal in your project folder and run `claude`, or open that folder in desktop Code. In the terminal CLI session, `/plugin` shows installed plugins. On desktop, type `/` in the Code prompt to check the available kit commands.
 
 ## If installation stops
 
-A repository-not-found or permission error can mean your GitHub account lacks access or Git is authenticated as another account. Confirm access to this private repository with its owner before retrying. Do not paste access tokens into a prompt or issue. [Troubleshooting](troubleshooting.md) has the next checks.
+Check the exact repository name, account access, and any organization restrictions. An **Add** button means the plugin still needs to be added. If it is added but missing from Code, check account sync and session availability before reinstalling. Do not paste credentials into a prompt or issue. [Troubleshooting](troubleshooting.md) has the next checks.
 
 **Next:** [Your first session](your-first-session.md).
 
